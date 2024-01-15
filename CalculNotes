@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class INFO151 {
+public static void main(String[]args){
+    Scanner sc= new Scanner(System.in);
+    Scanner b= new Scanner(System.in);
+    
+    float Moyenne;
+    System.out.println("SPÉCIALITÉ GENIE LOGICIEL");
+
+    System.out.println(" veuillez  saisir le nombre d'étudiant");
+    int N=b.nextInt () ;
+    for(int i=0; i<N; i++)  {
+        //recuperer les données
+        System.out.println("Veuillez saisir le nom de l'université de l' etudiant");
+        String uni= sc.nextLine();
+        System.out.println("Veuillez saisir le matricule de l' etudiant");
+        String matricule=sc.nextLine();
+        System.out.println("Veuillez entrer le  nom complet de l' etudiant");
+        String NomCom =sc.nextLine();
+        System.out.println("Veuillez saisir la date de naissance de l' etudiant");
+        String date_naissance=sc.nextLine();
+        System.out.println(" veiullez entrer le sexe");
+        String Sexe=sc.nextLine();
+
+//recuperation des notes ,calcul de moyenne ,traitement et affichage des resultats
+        try {
+            System.out.println("veuillez saisir la note du cc");
+            int CC=b.nextInt();
+            System.out.println("veuillez saisir la note du TP");
+            int TP=b.nextInt();
+            System.out.println("veuillez saisir la note la SN");
+            int SN=b.nextInt();
+            
+            if(CC<=21 || TP<=21 || SN<=21){
+                throw new Exception("Une des notes est inférieure ou égale à 21");
+            }
+
+            Moyenne=(CC+TP+SN)/3;
+           System .out.println("BIENVENUE AU GÉNIE LOGICIEL INFO151");
+           
+           System.out.println("Université : "+ uni  );
+           System.out.println("Nom complet : " + NomCom ) ;
+           System.out.println("Matricule : " + matricule);
+           System.out.println("sexe : " + Sexe);
+           System.out.println("date de naissance : " +date_naissance );
+           System.out.println("Moyenne : " + Moyenne);
+           if(Moyenne>=80){
+            System.out.println( "Grade : A");
+           } else if( Moyenne>=75 && Moyenne<80) {
+            System.out.println( "Grade : A -");
+           }else if( Moyenne>=70 && Moyenne<75) {
+            System.out.println( "Grade : B+");
+           }else if( Moyenne>=65 && Moyenne<70) {
+            System.out.println( "Crade : B");
+           }else if( Moyenne>=60 && Moyenne<65) {
+            System.out.println( "Grade :B- ");
+            } else if( Moyenne>=55 && Moyenne<60) {
+                System.out.println( "Crade : C");
+            } else if( Moyenne>=50 && Moyenne<55) {
+                System.out.println( "Crade : D");
+            } else if( Moyenne>=45 && Moyenne<50) {
+                System.out.println( "Crade : A -");
+             } else if( Moyenne>=40 && Moyenne<45) {
+             System.out.println( "Crade : F");
+            }else if( Moyenne<40) {
+                System.out.println( "Crade : ECHEC");
+            }
+            System.out.println( " Félicitation pour vos notes !");
+        } catch (NumberFormatException e) {
+            System.out.println("Erreur : Veuillez entrer des nombres valides pour les notes");
+        } catch (Exception e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        System.out.println(); // Ajoutons une ligne vide pour mieux visualiser les résultats
+    
+    }
+} 
+}      
